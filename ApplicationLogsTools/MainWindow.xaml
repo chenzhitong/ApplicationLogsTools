@@ -1,0 +1,33 @@
+﻿<Window x:Class="ApplicationLogsTools.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" AllowDrop="True"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="2*"></RowDefinition>
+            <RowDefinition Height="auto"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Menu Grid.Row="0" Grid.ColumnSpan="2">
+            <MenuItem Header="Open" Click="MenuItem_Click"></MenuItem>
+            <MenuItem Name="SaveMenu" Header="Save" IsEnabled="False" Click="SaveMenu_Click"></MenuItem>
+        </Menu>
+        <Grid Grid.Row="1" Grid.ColumnSpan="2" AllowDrop="True" DragEnter="Grid_DragEnter" Background="LightGray" Drop="Grid_Drop">
+
+            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">Drag NEO Application Log File to here</TextBlock>
+        </Grid>
+        <TextBox Name="TextInput" Grid.Row="2" Grid.Column="0" AcceptsReturn="True" TextWrapping="Wrap" TextChanged="TextInput_TextChanged"></TextBox>
+        <TextBox Name="TextOutput" Grid.Row="2" Grid.Column="1" AcceptsReturn="True" TextWrapping="Wrap"></TextBox>
+        <StatusBar Grid.Row="3" Grid.ColumnSpan="2">
+            <TextBlock Name="StatusText"></TextBlock>
+        </StatusBar>
+    </Grid>
+</Window>
