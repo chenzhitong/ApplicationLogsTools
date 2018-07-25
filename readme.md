@@ -1,6 +1,6 @@
 # ApplicationLogsTools
 
-将 NEO Application Log 文件中的 transfer 通知翻译成易读的格式。
+将 NEO Application Log 文件中的 transfer 通知翻译成易读的格式。因为通知格式是任意的，本工具只兼容 nep-5 的 transfer 通知。
 
 例如：
 
