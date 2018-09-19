@@ -4,7 +4,6 @@ using Neo.Wallets;
 using Newtonsoft.Json.Linq;
 using System;
 using System.IO;
-using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Windows;
@@ -32,9 +31,9 @@ namespace ApplicationLogsTools
             if(stateValue[0]["type"].ToString() == "ByteArray")
                 stateValue[0]["value"] = (stateValue[0]["value"].ToString()).HexToString();
             if(stateValue[1]["type"].ToString() == "ByteArray" && !string.IsNullOrEmpty(stateValue[1]["value"].ToString()))
-                stateValue[1]["value"] = Wallet.ToAddress(new UInt160(stateValue[1]["value"].ToString().HexToBytes()));
+                stateValue[1]["value"] = new UInt160(stateValue[1]["value"].ToString().HexToBytes()).ToAddress();
             if (stateValue[2]["type"].ToString() == "ByteArray" && !string.IsNullOrEmpty(stateValue[2]["value"].ToString()))
-                stateValue[2]["value"] = Wallet.ToAddress(new UInt160(stateValue[2]["value"].ToString().HexToBytes()));
+                stateValue[2]["value"] = new UInt160(stateValue[2]["value"].ToString().HexToBytes()).ToAddress();
             if (stateValue[3]["type"].ToString() == "ByteArray")
                 stateValue[3]["value"] = new BigInteger(stateValue[3]["value"].ToString().HexToBytes()).ToString();
             TextOutput.Text = json.ToString();
